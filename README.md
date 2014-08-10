@@ -1,4 +1,4 @@
 kharma.github.io
 ================
 
-Github.io Project PAge
+Github.io Project Page
