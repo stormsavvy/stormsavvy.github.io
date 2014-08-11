@@ -35,6 +35,11 @@ Walter Yu, PE
 
 How to deliver event-based notifications to your customers:
 
+* Apps are rarely stand-alone and require logic that communicates with
+  the outside world
+* How to deliver relevant to data to your customers?
+* How to develop in a modular fashion that allows components to be
+  reused?
 
 ### Solution
 
