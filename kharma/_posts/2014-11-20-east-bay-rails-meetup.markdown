@@ -131,4 +131,8 @@ end
 [noaa]: http://graphical.weather.gov/xml/
 [aw]: https://api.accuweather.com/
 [ng]: http://nokogiri.org/
-[wyu]: http://walteryu.com
+[wyu]: http://walteryu.com/
+[kh]: http://kharma.github.io/
+[dd]: http://code.daviddoolin.com/
+[ab]: http://www.adambarber.tv/
+[un]: http://unirest.io/
