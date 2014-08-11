@@ -19,6 +19,44 @@ In this meetup presentation, you will learn...
 * Current building environmental compliance software
 * Keep customers out of trouble with regulatory agencies
 
+### Why Weather Data?
+
+* Apps for weather-sensitive industries, e.g. outdoor recreation, flight
+  forecasting, etc.
+* Offers more detailed forecast or containing additional data, e.g. wind
+  speed, humidity, etc.
+* Offer customers climate history with services such as [NCDC][ncdc] by
+  NOAA
+
+### Why Action Mailer?
+
+* Customers may need daily forecast and/or warnings
+* Could be generalized into notification system, where by customers are
+  notified based on specific trigger warnings
+* Simple example provided for checking forecast daily using rake task,
+  but feel free to replace with your own system
+
+### Why TDD?
+
+* Tests verify API response and passing data thru notification system
+* Reduce errors when multiple classes are interacting to deliver data
+* Ensure code quality when more features are build on top of existing
+  ones
+
+### Data Options
+
+* [NOAA][noaa] XML API
+* [Wunderground][wg] JSON API
+* [AccuWeather][aw] JSON API
+* [NCDC][ncdc] JSON API
+
+### Parsing Options
+
+XML
+
+* Ruby Unirest for handling response or...
+* [Typhoeus][ty] gem
+* [Nokogiri][ng] gem for parsing
 
 Highlight like `this!`
 
