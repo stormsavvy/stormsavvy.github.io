@@ -31,6 +31,21 @@ Walter Yu, PE
 * Keep customers out of trouble with regulatory agencies
 * Help customers handle compliance more efficiently
 
+### Problem Space
+
+How to deliver event-based notifications to your customers:
+
+
+### Solution
+
+Utilize the Rails framework and Ruby gems for checking and delivering
+data:
+
+* ActionMailer allows email templates to be easily passed as views
+* Rake tasks can be set to make HTTP requests
+* Testing tools ensure that requests are made and mail is delivered
+* Example delivers weather data but can be applied to any API data
+
 ### Why Weather Data?
 
 Weather affects our small and big ways, from flight delays to natural
