@@ -65,7 +65,7 @@ Because some customers may prefer plain-vanilla email...
 * Customers may need daily forecast and/or warnings
 * Could be generalized into notification system, where by customers are
   notified by specific events
-* Simple example provided for checking forecast using rake task
+* Example provided for checking forecast using rake task
 
 ### Why TDD?
 
