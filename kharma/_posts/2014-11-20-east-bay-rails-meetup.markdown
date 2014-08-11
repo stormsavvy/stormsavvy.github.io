@@ -70,7 +70,11 @@ print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 {% endhighlight %}
 
-Check out [NOAA][noaa] for more info.
 
-[noaa]: http://weather.gov
+[wg]: http://www.wunderground.com/weather/api/
+[ncdc]: http://www.ncdc.noaa.gov/cdo-web/token
+[ty]: https://github.com/typhoeus/typhoeus
+[noaa]: http://graphical.weather.gov/xml/
+[aw]: https://api.accuweather.com/
+[ng]: http://nokogiri.org/
 [wyu]: http://walteryu.com
