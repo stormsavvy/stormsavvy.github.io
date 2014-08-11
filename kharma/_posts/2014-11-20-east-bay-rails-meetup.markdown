@@ -64,29 +64,64 @@ together...
 
 ### Data Options
 
+Weather data is consumed either as JSON or (older) XML APIs:
+
 * [NOAA][noaa] XML API
 * [Wunderground][wg] JSON API
 * [AccuWeather][aw] JSON API
 * [NCDC][ncdc] JSON API
 
-### Parsing Options
+### Making HTTP Requests:
 
-XML
-
-* Ruby Unirest for handling response or...
-* [Typhoeus][ty] gem
-* [Nokogiri][ng] gem for parsing
-
-Highlight like `this!`
-
-Code snippets like this:
+Ruby [Unirest][un] library:
 
 {% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
+API_URL = "http://www.wrh.noaa.gov/forecast/xml/xml.php?"
+def contact_noaa
+  url = "#{API_URL}duration=#{@duration}&interval=\
+    #{@interval}&lat=#{@lat}&lon=#{@lng}"
+  @response = Unirest::get(url)
 end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
+{% endhighlight %}
+
+Or [Typhoeus][ty] gem:
+
+{% highlight ruby %}
+request = Typhoeus::Request.new(
+  url,
+  method: :get,
+  timeout: 8000
+)
+@hydra.queue(request)
+@hydra.run
+response = request.response
+data = JSON.parse(response.body)
+return data
+{% endhighlight %}
+
+### Parsing Options
+
+[Nokogiri][ng] gem for parsing XML:
+
+{% highlight ruby %}
+f = File.open("blossom.xml")
+doc = Nokogiri::XML(f)
+f.close
+{% endhighlight %}
+
+For JSON, parse the returned hash as follows:
+
+{% highlight ruby %}
+def get_forecast(zipcode)
+  @hydra = Typhoeus::Hydra.new
+  url = "http://api.wunderground.com/api/#{APIKEY}\
+    /forecast10day/q/#{zipcode}.json"
+  @forecast = make_request(url)
+end
+
+def parse_wunderground_10day(forecast)
+  @forecastday = forecast['forecast']['simpleforecast']['forecastday']
+end
 {% endhighlight %}
 
 
