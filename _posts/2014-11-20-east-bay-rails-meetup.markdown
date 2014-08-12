@@ -24,7 +24,7 @@ Thanks to Dave and Adam for their help:
 
 ### Introduction
 
-Walter Yu, PE
+Walter Yu, P.E.
 
 * Background in civil and transportation engineering
 * Current building environmental compliance software
