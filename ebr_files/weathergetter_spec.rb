@@ -1,3 +1,5 @@
+# spec/lib/weather/weathergetter.rb
+
 require 'spec_helper'
 require 'typhoeus'
 require 'json'
