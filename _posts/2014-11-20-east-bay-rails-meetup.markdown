@@ -11,7 +11,7 @@ Presentation Website: [kharma.github.io][kh]
 
 In this meetup presentation, you will learn...
 
-* How to `work with XML APIs`
+* How to `work with weather data APIs`
 * How to `pass data to Action Mailer`
 * How to `test each of the above`
 
