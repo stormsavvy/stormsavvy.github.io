@@ -146,9 +146,18 @@ def parse_wunderground_10day(forecast)
 end
 {% endhighlight %}
 
-### Additional Setup for XML
+### Saving Data Using Model Attributes
 
+Use case:
 
+* NOAA data is specified by regulatory permits
+* As a result, NOAA data needed to be saved
+* Data can be saved using model attributes
+
+Review NOAA data models:
+
+* app/model/weather_update.rb
+* app/model/forecast_period.rb
 
 [wg]: http://www.wunderground.com/weather/api/
 [ncdc]: http://www.ncdc.noaa.gov/cdo-web/token
