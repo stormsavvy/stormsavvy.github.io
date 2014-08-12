@@ -96,6 +96,7 @@ Weather data is consumed either as JSON or (older) XML APIs:
 Ruby [Unirest][un] library:
 
 {% highlight ruby %}
+# app/services/noaa_forecast_service.rb
 API_URL = "http://www.wrh.noaa.gov/forecast/xml/xml.php?"
 def contact_noaa
   url = "#{API_URL}duration=#{@duration}&interval=\
