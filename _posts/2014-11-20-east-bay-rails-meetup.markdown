@@ -120,7 +120,7 @@ data = JSON.parse(response.body)
 return data
 {% endhighlight %}
 
-### Parsing Options
+### Parsing the Response
 
 [Nokogiri][ng] gem for parsing XML:
 
@@ -133,6 +133,7 @@ f.close
 For JSON, parse the returned hash as follows:
 
 {% highlight ruby %}
+# lib/weather/weathergetter.rb
 def get_forecast(zipcode)
   @hydra = Typhoeus::Hydra.new
   url = "http://api.wunderground.com/api/#{APIKEY}\
@@ -144,6 +145,9 @@ def parse_wunderground_10day(forecast)
   @forecastday = forecast['forecast']['simpleforecast']['forecastday']
 end
 {% endhighlight %}
+
+### Additional Setup for XML
+
 
 
 [wg]: http://www.wunderground.com/weather/api/
