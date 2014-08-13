@@ -60,8 +60,8 @@ disasters...
   forecasting, etc.
 * Offers more detailed forecast or containing additional data, e.g. wind
   speed, humidity, etc.
-* Offer customers climate history with services such as `[NCDC][ncdc] by
-  NOAA`
+* Offer customers climate history with services such as [NCDC][ncdc] by
+  NOAA
 
 ### Why Action Mailer?
 
@@ -156,8 +156,8 @@ Use case:
 
 Review NOAA data models:
 
-* app/model/weather_update.rb
-* app/model/forecast_period.rb
+* [app/model/weather_update.rb][weather_update]
+* [app/model/forecast_period.rb][weather_period]
 
 [wg]: http://www.wunderground.com/weather/api/
 [ncdc]: http://www.ncdc.noaa.gov/cdo-web/token
@@ -170,3 +170,5 @@ Review NOAA data models:
 [dd]: http://code.daviddoolin.com/
 [ab]: http://www.adambarber.tv/
 [un]: http://unirest.io/
+[weather_update]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/weather_update.rb
+[weather_period]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/forecast_period.rb
