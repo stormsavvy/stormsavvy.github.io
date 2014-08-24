@@ -159,6 +159,10 @@ Review NOAA data models:
 * [app/model/weather_update.rb][weather_update]
 * [app/model/forecast_period.rb][weather_period]
 
+Review model spec:
+
+
+[kh]: http://kharma.github.io/
 [wg]: http://www.wunderground.com/weather/api/
 [ncdc]: http://www.ncdc.noaa.gov/cdo-web/token
 [ty]: https://github.com/typhoeus/typhoeus
@@ -166,7 +170,6 @@ Review NOAA data models:
 [aw]: https://api.accuweather.com/
 [ng]: http://nokogiri.org/
 [wyu]: http://walteryu.com/
-[kh]: http://kharma.github.io/
 [dd]: http://code.daviddoolin.com/
 [ab]: http://www.adambarber.tv/
 [un]: http://unirest.io/
