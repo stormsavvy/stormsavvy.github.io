@@ -366,5 +366,9 @@ end
 [dd]: http://code.daviddoolin.com/
 [ab]: http://www.adambarber.tv/
 [un]: http://unirest.io/
-[weather_update]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/weather_update.rb
-[weather_period]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/forecast_period.rb
+[wu]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/weather_update.rb
+[fp]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/forecast_period.rb
+[wu_spec]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/weather_update_spec.rb
+[fp_spec]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/forecast_period_spec.rb
+[nf]:
+[nf_spec]:
