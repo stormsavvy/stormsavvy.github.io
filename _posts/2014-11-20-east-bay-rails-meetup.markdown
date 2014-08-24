@@ -156,11 +156,204 @@ Use case:
 
 Review NOAA data models:
 
-* [app/model/weather_update.rb][weather_update]
-* [app/model/forecast_period.rb][weather_period]
+* [app/model/weather_update.rb][wu]
+* [app/model/forecast_period.rb][fp]
+
+{% highlight ruby %}
+# app/model/weather_update.rb
+def build_from_xml(xml)
+  @xml = xml
+  data = {
+    forecast_creation_time: get_forecast_creation_time,
+    lat: get_latitude,
+    lng: get_longitude,
+    elevation: get_elevation,
+    duration: get_duration,
+    interval: get_interval
+  }
+  assign_attributes(data)
+end
+{% endhighlight %}
+
+{% highlight ruby %}
+# app/model/forecast_period.rb
+def build_from_xml(period, validDate, site_id)
+  @period = period
+  @valid_date = validDate
+  # Check that pop is being passed and not temp for max pop
+  data = {
+    forecast_prediction_time: get_full_time,
+    temperature: get_temperature,
+    dewpoint: get_dew_point,
+    rh: get_rh,
+    sky_cover: get_sky_cover,
+    wind_speed: get_wind_speed,
+    wind_direction: get_wind_direction,
+    wind_gust: get_wind_gust,
+    pop: get_pop,
+    qpf: get_qpf,
+    snow_amount: get_snow_amt,
+    snow_level: get_snow_level,
+    wx: wx,
+    site_id: site_id
+  }
+  assign_attributes(data)
+end
+{% endhighlight %}
 
 Review model spec:
 
+* [spec/model/weather_update_spec.rb][wu_spec]
+* [spec/model/forecast_period_spec.rb][fp_spec]
+
+{% highlight ruby %}
+# spec/model/weather_update_spec.rb
+describe 'forecast_period associations' do
+  it 'responds to weather_updates' do
+    expect(weather_update).to respond_to(:forecast_periods)
+  end
+
+  it 'destroys associated sites' do
+    weather_update.destroy
+    expect(ForecastPeriod.find_by_id(weather_update.id)).to be_nil
+  end
+end
+
+describe "attributes" do
+  it 'has correct attributes' do
+    expect(weather_update.forecast_creation_time).to eq("2013-09-02 16:45:33")
+    expect(weather_update.lat).to eq(1.5)
+    expect(weather_update.lng).to eq(1.5)
+    expect(weather_update.elevation).to eq(1)
+    expect(weather_update.duration).to eq(1)
+    expect(weather_update.interval).to eq(1)
+  end
+end
+
+describe '#build_from_xml' do
+  it 'responds to #build_from_xml' do
+    expect(weather_update).to respond_to(:build_from_xml)
+  end
+end
+{% endhighlight %}
+
+{% highlight ruby %}
+# spec/model/forecast_period_spec.rb
+describe "weather_update associations" do
+  it "has correct association" do
+    expect(wu).to respond_to(:forecast_periods)
+  end
+
+  it "creates new forecast_period" do
+    expect{
+      wu.forecast_periods.create
+    }.to change(ForecastPeriod, :count).by(1)
+  end
+
+  it "destroys associated forecast_periods" do
+    wu.destroy
+    forecast_periods.each do |f|
+      expect(ForecastPeriod.find_by_id(f.id)).to be_nil
+    end
+  end
+end
+
+describe "attributes" do
+  it "has correct attributes" do
+    expect(fp.forecast_prediction_time).to eq("2013-09-02 19:25:22")
+    expect(fp.temperature).to eq(1)
+    expect(fp.dewpoint).to eq(1)
+    expect(fp.rh).to eq(1)
+    expect(fp.sky_cover).to eq(1)
+    expect(fp.wind_speed).to eq(1)
+    expect(fp.wind_direction).to eq(1)
+    expect(fp.wind_gust).to eq(1)
+    expect(fp.pop).to eq(1)
+    expect(fp.qpf).to eq(1.5)
+    expect(fp.snow_amount).to eq(1.5)
+    expect(fp.snow_level).to eq(1)
+    expect(fp.wx).to eq("MyString")
+    # fp.site.should == nil
+    # fp.weather_update.should == nil
+  end
+end
+{% endhighlight %}
+
+### NOAA Forecast Service
+
+Organize external services into classes under app/services:
+
+* Forecast service retrieves API response, then stores it in the model
+* Assembles forecast table to be passed into the mailer
+
+Review NOAA forecast service:
+
+* [app/services/noaa_forecast_service.rb][nf]
+* [spec/services/noaa_forecast_service_spec.rb][nf_spec]
+
+{% highlight ruby %}
+# app/services/noaa_forecast_service.rb
+def get_forecast
+  # expire_time = 60.minutes
+  # @response ||= fetch_noaa_data_with_cache(expire_time)
+  @response ||= fetch_noaa_data
+end
+
+def save_results
+  @weather_update.save
+  save_forecast_periods
+end
+
+def site_forecast(site)
+  @noaa = NoaaForecastService.new(site: site)
+  @noaa.get_forecast
+  @noaa.save_results
+end
+
+def forecast_table(site)
+  site_forecast(site)
+  @forecast = []
+  for i in (0..27)
+    date = { date: ProjectLocalTime::format(Date.today + (6*i).hours)}
+    weather = { weather: @noaa.forecast_periods[i].pop }
+    rainfall = { rainfall: @noaa.forecast_periods[i].qpf }
+
+    date_weather = date.merge!(weather)
+    date_weather_rainfall = date_weather.merge!(rainfall)
+    @forecast.push(date_weather_rainfall)
+  end
+  return @forecast
+end
+{% endhighlight %}
+
+{% highlight ruby %}
+# spec/services/noaa_forecast_service_spec.rb
+context "API query" do
+  before :each do
+    nfs.get_forecast
+  end
+
+  it "sets weather_update after API query" do
+    expect(nfs.weather_update.class.name).to eq("WeatherUpdate")
+  end
+
+  it "sets forecast_periods after api query" do
+    expect(nfs.forecast_periods.count).to eq(29)
+  end
+
+  it "saves WeatherUpdate" do
+    weather_update_count = WeatherUpdate.count
+    nfs.save_results
+    expect(WeatherUpdate.count).to eq(weather_update_count + 1)
+  end
+
+  it "saves ForecastPeriods" do
+    weather_update_count = ForecastPeriod.count
+    nfs.save_results
+    expect(ForecastPeriod.count).to eq(weather_update_count + 29)
+  end
+end
+{% endhighlight %}
 
 [kh]: http://kharma.github.io/
 [wg]: http://www.wunderground.com/weather/api/
