@@ -491,6 +491,28 @@ Review rake tasks:
 
 * [lib/tasks/scheduler.rake][rake]
 
+### Mailer Demo:
+
+* Demo with daily forecast delivered by user and site
+* Additional logic can be added to watch forecast
+* Options for adding attachments, users, etc.
+
+### Conclusion
+
+* XML is out, JSON is in when working with external services
+* Additional work when it comes to XML data
+* Model logic wraps around response data
+* Format data for display within the view
+* Contain logic within model and mailer, pass onto rake task
+* Spec out each section to ensure code quality
+
+### Questions?
+
+Contact:
+
+* Email: kharma@gmail.com
+* Twitter: @walteryu
+
 [kh]: http://kharma.github.io/
 [wg]: http://www.wunderground.com/weather/api/
 [ncdc]: http://www.ncdc.noaa.gov/cdo-web/token
