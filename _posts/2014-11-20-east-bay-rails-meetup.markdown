@@ -7,7 +7,10 @@ categories: rails meetup
 
 ### Delivering Weather Data in Rails
 
-Presentation Website: [kharma.github.io][kh]
+Examples and slides:
+
+* Code examples located [here][code]
+* Presentation Website: [kharma.github.io][kh]
 
 In this meetup presentation, you will learn...
 
