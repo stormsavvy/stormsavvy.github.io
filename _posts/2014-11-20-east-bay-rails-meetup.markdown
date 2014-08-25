@@ -355,6 +355,84 @@ context "API query" do
 end
 {% endhighlight %}
 
+### Weather Data & Site Model
+
+* Organize weather data to be site specific in each model
+* Display data in forecast table, which will be shown by the mailer
+
+Review site model:
+
+* [app/models/site.rb][site]
+* [spec/models/site_spec.rb][site_spec]
+
+{% highlight ruby %}
+# app/models/site.rb
+def chance_of_rain
+  nfs = NoaaForecastService.new(site: self)
+  nfs.site_forecast(self)
+  start_time = DateTime.now.beginning_of_day
+  finish_time = DateTime.now.end_of_day
+  forecast_period = self.forecast_periods.where(
+    'forecast_prediction_time BETWEEN ? AND ?', start_time, finish_time
+  )
+  forecast_period.order('pop DESC').first
+end
+
+def noaa_table
+  nfs = NoaaForecastService.new(site: self)
+  nfs.forecast_table(self)
+end
+{% endhighlight %}
+
+{% highlight ruby %}
+# spec/models/site_spec.rb
+describe '#noaa_table' do
+  it "responds to noaa_table" do
+    expect(site).to respond_to(:noaa_table)
+  end
+
+  it 'returns forecast table' do
+    forecast = site.noaa_table
+    forecast.each do |f|
+      if f[:weather] == -999
+        f[:weather] = 0
+      end
+      expect(f[:weather]).to be_between(0,100)
+
+      if f[:rainfall] == -999
+        f[:rainfall] = 0
+      end
+      expect(f[:rainfall]).to be_between(0,100)
+    end
+  end
+end
+{% endhighlight %}
+
+### Action Mailer Basics
+
+* Created using `rails generate mailer`
+* See Rails [guides][am] for quick start on mailers
+* Mailers include inline images, attachments and spec
+
+### How to Organize the Mailer
+
+* Organize mailers by type such as alerts, user, etc.
+* Mailers will contain methods for each mailer
+* Methods will then pass data into the view
+
+Review mailer and spec:
+
+* [app/services/noaa_forecast_service.rb][nf]
+* [spec/services/noaa_forecast_service_spec.rb][nf_spec]
+
+{% highlight ruby %}
+# app/services/noaa_forecast_service.rb
+{% endhighlight %}
+
+{% highlight ruby %}
+# spec/services/noaa_forecast_service_spec.rb
+{% endhighlight %}
+
 [kh]: http://kharma.github.io/
 [wg]: http://www.wunderground.com/weather/api/
 [ncdc]: http://www.ncdc.noaa.gov/cdo-web/token
