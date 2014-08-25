@@ -516,6 +516,7 @@ Contact:
 * Email: kharma@gmail.com
 * Twitter: @walteryu
 
+[code]: https://github.com/kharma/kharma.github.io/tree/master/ebr_files
 [kh]: http://kharma.github.io/
 [wg]: http://www.wunderground.com/weather/api/
 [ncdc]: http://www.ncdc.noaa.gov/cdo-web/token
