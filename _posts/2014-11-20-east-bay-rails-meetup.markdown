@@ -417,7 +417,7 @@ end
 * See Rails [guides][am] for quick start on mailers
 * Mailers include inline images, attachments and spec
 
-### How to Organize the Mailer
+### Organizing the Mailer
 
 * Organize mailers by type such as alerts, user, etc.
 * Mailers will contain methods for each mailer
