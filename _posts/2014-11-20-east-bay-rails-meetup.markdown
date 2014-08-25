@@ -483,7 +483,7 @@ describe "daily_mailer" do
 end
 {% endhighlight %}
 
-### Sending Mailers with Rake Tasks
+### Sending Mail with Rake Tasks
 
 * Deliver mailers using rake tasks
 * Tasks should only handle recipients and basics
