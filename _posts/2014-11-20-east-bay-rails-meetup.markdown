@@ -511,3 +511,6 @@ Review rake tasks:
 [site]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/site.rb
 [site_spec]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/site_spec.rb
 [am]: http://edgeguides.rubyonrails.org/action_mailer_basics.html
+[alert]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/alert_mailer.rb
+[alert_view]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/_forecast_table.html.haml
+[alert_spec]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/alert_mailer_spec.rb
