@@ -420,18 +420,76 @@ end
 * Mailers will contain methods for each mailer
 * Methods will then pass data into the view
 
-Review mailer and spec:
+Review mailer, view and spec:
 
-* [app/services/noaa_forecast_service.rb][nf]
-* [spec/services/noaa_forecast_service_spec.rb][nf_spec]
+* [app/mailers/alert_mailer.rb][alert]
+* [app/views/alert_mailer/_forecast_table.html.haml][alert_view]
+* [spec/mailers/alert_mailer_spec.rb][alert_spec]
 
 {% highlight ruby %}
-# app/services/noaa_forecast_service.rb
+# app/mailers/alert_mailer.rb
+def daily_mailer(user)
+  set_defaults
+  @user = user
+  @dd = DisplayDate.new
+
+  if user.has_site?
+    user.sites.active.each do |site|
+      @noaa_url = "http://www.wrh.noaa.gov/forecast/wxtables/index.php?\
+        lat=#{site.lat}&lon=#{site.long}&clrindex=0&table=custom&duration=7&interval=6"
+      @wg_url = "http://www.wunderground.com/cgi-bin/findweather/hdfForecast?\
+        query=#{site.zipcode}"
+      @site = site
+    end
+
+    mail(
+      to: "#{user.first_name} #{user.last_name} <#{user.email}>",
+      subject: "Storm Savvy Daily Mailer for #{ProjectLocalTime::date_only(Date.today)}"
+    ).deliver
+  end
+end
 {% endhighlight %}
 
 {% highlight ruby %}
-# spec/services/noaa_forecast_service_spec.rb
+# spec/mailers/alert_mailer_spec.rb
+describe "daily_mailer" do
+  let!(:mailer) { AlertMailer.daily_mailer(user).deliver }
+
+  it "renders headers" do
+    expect(mailer.subject).to eq("Storm Savvy Daily Mailer for\
+     #{ProjectLocalTime::date_only(Date.today)}")
+    expect(mailer.to).to eq(["#{user.email}"])
+    expect(mailer.from).to eq(["alerts@stormsavvy.com"])
+  end
+
+  it "renders body" do
+    expect(mailer.body.encoded).to match("Greetings")
+    expect(mailer.body.encoded).to match("Please email walter@stormsavvy.com")
+    expect(mailer.body.encoded).to match("The Storm Savvy Team")
+  end
+
+  it 'creates noaa forecast table' do
+    nfs = NoaaForecastService.new(site: site)
+    forecast = nfs.forecast_table(site)
+    expect(nfs).to respond_to(:forecast_table)
+    forecast.each do |f|
+      expect(f[:weather]).to be_between(0,100)
+      expect(f[:rainfall]).to be_between(0,100)
+    end
+  end
+end
 {% endhighlight %}
+
+### Sending Mailers with Rake Tasks
+
+* Deliver mailers using rake tasks
+* Tasks should only handle recipients and basics
+* Leave remaining logic in mailer (model) logic
+* Spec out mailer logic within its own spec
+
+Review rake tasks:
+
+* [lib/tasks/scheduler.rake][rake]
 
 [kh]: http://kharma.github.io/
 [wg]: http://www.wunderground.com/weather/api/
