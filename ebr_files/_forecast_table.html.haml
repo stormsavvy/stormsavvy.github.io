@@ -1,0 +1,111 @@
+%link{:rel => :stylesheet, :type => :"text/css", :href => "/assets/stylesheets/weathersnapper"}
+%table
+  - @user.sites.each do |site|
+    %table
+      %h3
+        = link_to "#{site.name}", "https://www.stormsavvy.com/#{site_path(site)}"
+      %h3 Summary
+      %p
+        Site Name:
+        = link_to "#{site.name}", "https://www.stormsavvy.com/#{site_path(site)}"
+        /= link_to @site.name, site_path(@site)
+      %p
+        Project EA:
+        = site.project_ea
+
+      %h3 Weather Forecast Links
+      %p
+        NOAA Forecast Table:
+        %a{ href: "http://www.wrh.noaa.gov/forecast/wxtables/index.php?lat=#{site.lat}&lon=#{site.long}&clrindex=0&table=custom&duration=7&interval=6" }
+          = site.zipcode
+      %p
+        Wunderground Forecast:
+        %a{ href: "http://www.wunderground.com/cgi-bin/findweather/hdfForecast?query=#{site.zipcode}" }
+          = site.zipcode
+
+      %h3 Forecast Warnings
+      %p
+        POP:
+        - begin
+          / checks pop alert mailer
+          = site.check_pop_alert
+        - rescue => e
+          'NOAA API connection cannot be established'
+          - pp e
+      %p
+        If over 50% POP within the following time interval, then:
+      %p
+        24 hrs = imminent
+      %p
+        48 hrs = warning
+      %p
+        7-day = watch
+      %p
+        none = clear
+      %table
+        %tr
+          %td
+            %h3 NOAA 7-Day Forecast
+        %tr
+          %th Date
+          %th POP
+          %th QPF
+          - begin
+            - site.noaa_table.each do |f|
+              %tr
+                %td
+                  = f[:date]
+                %th
+                  - if f[:weather] == -999
+                    = f[:weather] = 0
+                  = f[:weather]
+                  :plain
+                    %
+                %th
+                  - if f[:rainfall] == -999
+                    = f[:rainfall] = 0
+                  = f[:rainfall]
+                  :plain
+                    inch
+          - rescue
+            'NOAA API connection cannot be established'
+        %tr
+          %td
+            %br
+            %h3 Wunderground 7-Day Forecast
+        %tr
+          %th Date
+          %th
+          %th POP
+          %th QPF
+        %tbody
+          - begin
+            - site.wg_table.each do |period|
+              //- site.wg_forecast.each do |period|
+              %tr
+                %td.date
+                  = "#{period['date']['weekday']}, "
+                  = "#{period['date']['day']} "
+                  = "#{period['date']['monthname']} "
+                  = "#{period['date']['year']} "
+                  = "#{period['date']['hour']}:#{period['date']['min']} "
+                  = "#{period['date']['tz_short']}"
+                  //= "#{period['date']['pretty']}"
+                  //- @dd.set_epoch((period['date']['epoch']).to_i)
+                  //= "#{@dd.get_day('day')},"
+                  //= @dd.get_date('date')
+                  //= "#{@dd.get_month('month')}."
+                  //= @dd.get_year('year')
+                %td.icon
+                  <img src="#{period['icon_url']}" height="64" />
+                %th.pop
+                  = "#{period['pop']}"
+                  :plain
+                    %
+                %th
+                  = "#{period['qpf_allday']['in']}"
+                  :plain
+                    inch
+          - rescue => e
+            'Wunderground API connection cannot be established'
+            - pp e
