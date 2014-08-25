@@ -536,3 +536,4 @@ Contact:
 [alert]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/alert_mailer.rb
 [alert_view]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/_forecast_table.html.haml
 [alert_spec]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/alert_mailer_spec.rb
+[rake]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/scheduler.rake
