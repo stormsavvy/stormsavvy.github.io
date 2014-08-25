@@ -18,7 +18,7 @@ In this meetup presentation, you will learn...
 * How to `pass data to Action Mailer`
 * How to `test each of the above`
 
-### Contributors to this Presentation
+### Contributors
 
 Thanks to Dave and Adam for their help:
 
