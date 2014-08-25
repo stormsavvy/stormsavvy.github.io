@@ -448,5 +448,8 @@ Review mailer and spec:
 [fp]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/forecast_period.rb
 [wu_spec]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/weather_update_spec.rb
 [fp_spec]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/forecast_period_spec.rb
-[nf]:
-[nf_spec]:
+[nf]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/noaa_forecast_service.rb
+[nf_spec]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/noaa_forecast_service_spec.rb
+[site]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/site.rb
+[site_spec]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/site_spec.rb
+[am]: http://edgeguides.rubyonrails.org/action_mailer_basics.html
