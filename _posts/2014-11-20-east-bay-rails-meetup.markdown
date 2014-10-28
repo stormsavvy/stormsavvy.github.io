@@ -10,7 +10,7 @@ categories: rails meetup
 Examples and slides:
 
 * Code examples located [here][code]
-* Presentation Website: [kharma.github.io][kh]
+* Presentation Website: [stormsavvy.github.io][kh]
 
 In this meetup presentation, you will learn...
 
@@ -513,11 +513,11 @@ Review rake tasks:
 
 Contact:
 
-* Email: kharma@gmail.com
+* Email: stormsavvy@gmail.com
 * Twitter: @walteryu
 
-[code]: https://github.com/kharma/kharma.github.io/tree/master/ebr_files
-[kh]: http://kharma.github.io/
+[code]: https://github.com/stormsavvy/stormsavvy.github.io/tree/master/ebr_files
+[kh]: http://stormsavvy.github.io/
 [wg]: http://www.wunderground.com/weather/api/
 [ncdc]: http://www.ncdc.noaa.gov/cdo-web/token
 [ty]: https://github.com/typhoeus/typhoeus
@@ -528,16 +528,16 @@ Contact:
 [dd]: http://code.daviddoolin.com/
 [ab]: http://www.adambarber.tv/
 [un]: http://unirest.io/
-[wu]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/weather_update.rb
-[fp]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/forecast_period.rb
-[wu_spec]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/weather_update_spec.rb
-[fp_spec]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/forecast_period_spec.rb
-[nf]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/noaa_forecast_service.rb
-[nf_spec]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/noaa_forecast_service_spec.rb
-[site]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/site.rb
-[site_spec]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/site_spec.rb
+[wu]: https://github.com/stormsavvy/stormsavvy.github.io/blob/master/ebr_files/weather_update.rb
+[fp]: https://github.com/stormsavvy/stormsavvy.github.io/blob/master/ebr_files/forecast_period.rb
+[wu_spec]: https://github.com/stormsavvy/stormsavvy.github.io/blob/master/ebr_files/weather_update_spec.rb
+[fp_spec]: https://github.com/stormsavvy/stormsavvy.github.io/blob/master/ebr_files/forecast_period_spec.rb
+[nf]: https://github.com/stormsavvy/stormsavvy.github.io/blob/master/ebr_files/noaa_forecast_service.rb
+[nf_spec]: https://github.com/stormsavvy/stormsavvy.github.io/blob/master/ebr_files/noaa_forecast_service_spec.rb
+[site]: https://github.com/stormsavvy/stormsavvy.github.io/blob/master/ebr_files/site.rb
+[site_spec]: https://github.com/stormsavvy/stormsavvy.github.io/blob/master/ebr_files/site_spec.rb
 [am]: http://edgeguides.rubyonrails.org/action_mailer_basics.html
-[alert]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/alert_mailer.rb
-[alert_view]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/_forecast_table.html.haml
-[alert_spec]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/alert_mailer_spec.rb
-[rake]: https://github.com/kharma/kharma.github.io/blob/master/ebr_files/scheduler.rake
+[alert]: https://github.com/stormsavvy/stormsavvy.github.io/blob/master/ebr_files/alert_mailer.rb
+[alert_view]: https://github.com/stormsavvy/stormsavvy.github.io/blob/master/ebr_files/_forecast_table.html.haml
+[alert_spec]: https://github.com/stormsavvy/stormsavvy.github.io/blob/master/ebr_files/alert_mailer_spec.rb
+[rake]: https://github.com/stormsavvy/stormsavvy.github.io/blob/master/ebr_files/scheduler.rake
