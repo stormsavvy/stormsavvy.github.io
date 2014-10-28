@@ -4,4 +4,4 @@ title: About
 permalink: /about/
 ---
 
-For more info visit [walteryu.com](http://walteryu.com/)
+For more info visit [stormsavvy.co](http://stormsavvy.co/)
