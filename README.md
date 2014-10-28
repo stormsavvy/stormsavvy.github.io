@@ -16,5 +16,5 @@ kharma.github.io
 3. `build jekyll` to compile site
 4. `run jekyll` to start local server
 
-[io]: http://kharma.github.io/
+[io]: http://stormsavvy.github.io/
 [jk]: http://jekyllrb.com/
