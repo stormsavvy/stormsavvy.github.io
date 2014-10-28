@@ -1,11 +1,11 @@
 # Site settings
 title: Presentation Page
-email: kharma@gmail.com
-description: "Presentation Page for Kharma"
+email: walter@stormsavvy.com
+description: "Presentation Page for Storm Savvy"
 baseurl: ""
-url: "http://walteryu.com"
-twitter_username: walteryu
-github_username:  kharma
+url: "http://stormsavvy.co"
+twitter_username: stormsavvy
+github_username:  stormsavvy
 
 # Build settings
 markdown: kramdown
