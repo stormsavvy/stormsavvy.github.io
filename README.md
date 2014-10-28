@@ -3,11 +3,11 @@ kharma.github.io
 
 ### Introduction
 
-[kharma.github.io][io] is the github page for Walter Yu.
+[stormsavvy.github.io][io] is the Storm Savvy Github page.
 
 ### Components
 
-[kharma.github.io][io] is built as a [jekyll][jk] site.
+[stormsavvy.github.io][io] is built as a [jekyll][jk] site.
 
 ### Installation & Usage
 
