@@ -2,7 +2,7 @@
 layout: post
 title:  "East Bay Rails Meetup"
 date:   2014-11-20
-categories: rails meetup
+categories: meetup
 ---
 
 ### Delivering Weather Data in Rails
