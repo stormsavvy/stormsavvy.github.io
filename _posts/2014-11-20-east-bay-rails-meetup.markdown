@@ -52,7 +52,6 @@ data:
 * ActionMailer allows email templates to be easily passed as views
 * Rake tasks can be set to make HTTP requests
 * Testing tools ensure that requests are made and mail is delivered
-* Example delivers weather data but can be applied to any API data
 
 ### Why Weather Data?
 
