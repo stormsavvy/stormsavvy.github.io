@@ -161,8 +161,8 @@ Use case:
 
 Review NOAA data models:
 
-* [app/model/weather_update.rb][wu]
-* [app/model/forecast_period.rb][fp]
+* DEMO: [app/model/weather_update.rb][wu]
+* DEMO: [app/model/forecast_period.rb][fp]
 
 {% highlight ruby %}
 # app/model/weather_update.rb
