@@ -516,7 +516,7 @@ Review rake tasks:
 
 Contact:
 
-* Email: stormsavvy@gmail.com
+* Email: walter@stormsavvy.com
 * Twitter: @walteryu
 
 [code]: https://github.com/stormsavvy/stormsavvy.github.io/tree/master/ebr_files
