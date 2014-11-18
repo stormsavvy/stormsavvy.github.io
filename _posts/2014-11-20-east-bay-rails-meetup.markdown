@@ -96,7 +96,7 @@ Weather data is consumed either as JSON or (older) XML APIs:
 
 ### Making HTTP Requests:
 
-Ruby [Unirest][un] library:
+For XML, use the Ruby [Unirest][un] library:
 
 {% highlight ruby %}
 # app/services/noaa_forecast_service.rb
