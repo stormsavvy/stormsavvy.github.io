@@ -108,9 +108,10 @@ def contact_noaa
 end
 {% endhighlight %}
 
-Or [Typhoeus][ty] gem:
+Or JSON, use the [Typhoeus][ty] gem:
 
 {% highlight ruby %}
+# Example from github page at http://typhoeus.github.io
 request = Typhoeus::Request.new(
   url,
   method: :get,
