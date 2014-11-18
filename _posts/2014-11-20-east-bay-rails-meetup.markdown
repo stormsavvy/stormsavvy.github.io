@@ -368,8 +368,8 @@ end
 
 Review site model:
 
-* [app/models/site.rb][site]
-* [spec/models/site_spec.rb][site_spec]
+* DEMO: [app/models/site.rb][site]
+* DEMO: [spec/models/site_spec.rb][site_spec]
 
 {% highlight ruby %}
 # app/models/site.rb
