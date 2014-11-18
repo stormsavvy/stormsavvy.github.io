@@ -290,11 +290,12 @@ Organize external services into classes under app/services:
 
 * Forecast service retrieves API response, then stores it in the model
 * Assembles forecast table to be passed into the mailer
+* Service classes may be used for retrieving/processing API data
 
 Review NOAA forecast service:
 
-* [app/services/noaa_forecast_service.rb][nf]
-* [spec/services/noaa_forecast_service_spec.rb][nf_spec]
+* DEMO: [app/services/noaa_forecast_service.rb][nf]
+* DEMO: [spec/services/noaa_forecast_service_spec.rb][nf_spec]
 
 {% highlight ruby %}
 # app/services/noaa_forecast_service.rb
