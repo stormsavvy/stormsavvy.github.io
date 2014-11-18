@@ -208,8 +208,8 @@ end
 
 Review model spec:
 
-* [spec/model/weather_update_spec.rb][wu_spec]
-* [spec/model/forecast_period_spec.rb][fp_spec]
+* DEMO: [spec/model/weather_update_spec.rb][wu_spec]
+* DEMO: [spec/model/forecast_period_spec.rb][fp_spec]
 
 {% highlight ruby %}
 # spec/model/weather_update_spec.rb
