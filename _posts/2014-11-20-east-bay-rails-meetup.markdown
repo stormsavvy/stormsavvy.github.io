@@ -428,9 +428,9 @@ end
 
 Review mailer, view and spec:
 
-* [app/mailers/alert_mailer.rb][alert]
-* [app/views/alert_mailer/_forecast_table.html.haml][alert_view]
-* [spec/mailers/alert_mailer_spec.rb][alert_spec]
+* DEMO: [app/mailers/alert_mailer.rb][alert]
+* DEMO: [app/views/alert_mailer/_forecast_table.html.haml][alert_view]
+* DEMO: [spec/mailers/alert_mailer_spec.rb][alert_spec]
 
 {% highlight ruby %}
 # app/mailers/alert_mailer.rb
