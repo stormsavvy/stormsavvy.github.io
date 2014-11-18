@@ -64,6 +64,7 @@ disasters...
   speed, humidity, etc.
 * Offer customers climate history with services such as [NCDC][ncdc] by
   NOAA
+* Example delivers weather data but can be applied to any API data
 
 ### Why Action Mailer?
 
