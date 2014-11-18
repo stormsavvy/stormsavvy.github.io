@@ -129,6 +129,7 @@ return data
 [Nokogiri][ng] gem for parsing XML:
 
 {% highlight ruby %}
+# Example from homepage at http://www.nokogiri.org
 f = File.open("blossom.xml")
 doc = Nokogiri::XML(f)
 f.close
