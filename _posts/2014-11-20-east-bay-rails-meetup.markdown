@@ -495,7 +495,7 @@ end
 
 Review rake tasks:
 
-* [lib/tasks/scheduler.rake][rake]
+* DEMO: [lib/tasks/scheduler.rake][rake]
 
 ### Mailer Demo:
 
